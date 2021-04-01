@@ -1,6 +1,7 @@
 import React from 'react';
+import ApiCall from "./main_pages/ApiCall";
 
-export default class Zulfiqar extends React.Component{
+export default class CarColour extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +10,7 @@ export default class Zulfiqar extends React.Component{
             color: "red",
             year: 1964
         };
-      //  this.changeColor = this.changeColor.bind(this);
+        this.changeColor = this.changeColor.bind(this);
     }
     changeColor = (a) => {
         this.setState({color: "pink"});
@@ -23,6 +24,9 @@ export default class Zulfiqar extends React.Component{
             <div>
                 <p>
                     It is a {this.state.color}
+                </p>
+                <p>
+                    <ApiCall/>
                 </p>
                 <button
                     type="button"
