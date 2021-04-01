@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 
-const axios = require('axios');
+import axios from "axios";
 
 const Country = (props) => {
     const [countries, setData] = useState("");
     const fetchCountry = async () => {
         await axios.get('https://restcountries.eu/rest/v2/name/' + props.name)
             .then((response) => {
+                console.log('https://restcountries.eu/rest/v2/name/' + props.name);
                 setData(response.data);
             })
             .catch(() => {
@@ -21,6 +22,7 @@ const Country = (props) => {
 
     return (
         <div>
+            {props.name}
 
         </div>
     );

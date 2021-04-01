@@ -9,6 +9,7 @@ import {
 import Home from './Home'
 import AboutUs from "./main_pages/AboutUs";
 import ApiCall from "./main_pages/ApiCall";
+import AppCall from "./App";
 
 export default function MyRoutes() {
     return (
@@ -34,7 +35,7 @@ export default function MyRoutes() {
                         <AboutUs/>
                     </Route>
                     <Route path="/api">
-                        <ApiCall/>
+                        <AppCall/>
                     </Route>
                 </Switch>
             </div>

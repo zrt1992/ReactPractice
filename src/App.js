@@ -3,47 +3,54 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Country from "./main_pages/Country";
 
 
 function App(props) {
     const [countries, setData] = useState("");
+    const [loadCountry, setCountry] = useState(false);
+    const [countryName, setcountryName] = useState("");
     const fetchLocalLikes = async () => {
         await axios.get('https://restcountries.eu/rest/v2/all')
             .then(function (response) {
-                console.log(response.data);
+              //  console.log(response.data);
                 //debugger;
                 setData(response.data);
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });
+    }
+    const showCountry = (value) =>{
+       // alert(loadCountry)
+        setCountry(!loadCountry)
+        setcountryName(value)
     }
     useEffect(async () => {
         fetchLocalLikes();
-        // await axios.get('https://restcountries.eu/rest/v2/all')
-        //     .then(function (response) {
-        //         console.log(response.data);
-        //         //debugger;
-        //         setData(response.data);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
 
     }, []);
     let property = "";
     return (
-        <div className="App">
-            <header className="App-header">
+        <div>
+            <header>
+                <Country name={countryName} />
                 <ul>
                     {countries.length > 0 && countries.map((country, index) => {
                         return (
                             <li key={index}>
-                                <Link to={`https://restcountries.eu/rest/v2/name/${country.name}`}>{country.name}</Link>
+                                <a  href="#" onClick={()=>{
+                                    showCountry(country.name)
+                                } }>{country.name}</a>
                             </li>
+
                         )
                     })}
                 </ul>
+                <div>
+
+
+                </div>
 
 
             </header>
