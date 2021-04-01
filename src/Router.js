@@ -10,12 +10,10 @@ import Home from './Home'
 import AboutUs from "./main_pages/AboutUs";
 import ApiCall from "./main_pages/ApiCall";
 
-export default () => {
+export default function MyRoutes() {
     return (
         <Router>
-
             <div>
-
                 <ul>
                     <li>
                         <Link to="/">Home</Link>
@@ -27,8 +25,6 @@ export default () => {
                         <Link to="/api">Api call</Link>
                     </li>
                 </ul>
-
-
                 <hr/>
                 <Switch>
                     <Route exact path="/">

@@ -21,13 +21,13 @@ const ApiCall = () => {
         fetchCountries()
     }, []);
      const test = () =>{
-         alert('asd')
+       //  alert('asd')
     }
 
     return (
         <div className="App">
             <header className="App-header">
-                <button onClick={test}> this is th ebutton</button>
+                <button onClick={test}> this is the button</button>
                 <ul>
                     {countries.length > 0 && countries.map((country, index) => {
                         return (
