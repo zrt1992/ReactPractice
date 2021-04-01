@@ -8,12 +8,12 @@ import Country from "./main_pages/Country";
 
 function App(props) {
     const [countries, setData] = useState("");
-    const [loadCountry, setCountry] = useState(false);
-    const [countryName, setcountryName] = useState("");
+    // const [loadCountry, setCountry] = useState(false);
+    const [countryName, setcountryName] = useState('');
     const fetchLocalLikes = async () => {
         await axios.get('https://restcountries.eu/rest/v2/all')
             .then(function (response) {
-              //  console.log(response.data);
+                //  console.log(response.data);
                 //debugger;
                 setData(response.data);
             })
@@ -21,9 +21,9 @@ function App(props) {
                 //console.log(error);
             });
     }
-    const showCountry = (value) =>{
-       // alert(loadCountry)
-        setCountry(!loadCountry)
+    const showCountry = (value) => {
+        console.log(value)
+        //  setCountry(!loadCountry)
         setcountryName(value)
     }
     useEffect(async () => {
@@ -34,14 +34,14 @@ function App(props) {
     return (
         <div>
             <header>
-                <Country name={countryName} />
+                <Country name={countryName}/>
                 <ul>
                     {countries.length > 0 && countries.map((country, index) => {
                         return (
                             <li key={index}>
-                                <a  href="#" onClick={()=>{
+                                <a href="#" onClick={() => {
                                     showCountry(country.name)
-                                } }>{country.name}</a>
+                                }}>{country.name}</a>
                             </li>
 
                         )
