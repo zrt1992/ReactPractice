@@ -20,8 +20,8 @@ const ApiCall = () => {
     useEffect(() => {
         fetchCountries()
     }, []);
-     const test = () =>{
-       //  alert('asd')
+    const test = () => {
+        //  alert('asd')
     }
 
     return (
