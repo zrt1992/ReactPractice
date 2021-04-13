@@ -8,7 +8,7 @@ import Country from "./main_pages/Country";
 
 function App(props) {
     const [countries, setData] = useState("");
-    // const [loadCountry, setCountry] = useState(false);
+    const [loadCountry, setCountry] = useState(false);
     const [countryName, setcountryName] = useState('');
     const fetchLocalLikes = async () => {
         await axios.get('https://restcountries.eu/rest/v2/all')
@@ -22,8 +22,7 @@ function App(props) {
             });
     }
     const showCountry = (value) => {
-        console.log(value)
-        //  setCountry(!loadCountry)
+        // setCountry(true);
         setcountryName(value)
     }
     useEffect(async () => {
@@ -43,16 +42,11 @@ function App(props) {
                                     showCountry(country.name)
                                 }}>{country.name}</a>
                             </li>
-
                         )
                     })}
                 </ul>
                 <div>
-
-
                 </div>
-
-
             </header>
         </div>
     );
